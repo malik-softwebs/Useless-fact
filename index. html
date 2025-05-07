@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Useless Facts Generator</title>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #50E3C2, #4A90E2);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-align: center;
+    }
+    .fact-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      margin-bottom: 2rem;
+      animation: fadeIn 0.6s ease;
+    }
+    #fact {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #4A90E2;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #3e78c6;
+    }
+    textarea {
+      width: 100%;
+      max-width: 600px;
+      min-height: 100px;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: #fff;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .ads {
+      margin: 2rem auto;
+      max-width: 600px;
+      width: 100%;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1><i class="uil uil-lightbulb-alt"></i> Useless Facts Generator</h1>  <div class="fact-box">
+    <div id="fact">Click the button to get a useless fact!</div>
+  </div>  <div class="controls">
+    <button onclick="showNextFact()">Next Fact</button>
+    
+  </div>  <div class="ads">[Adsterra Native Ad Placeholder]</div>
+  <div class="ads">[Adsterra Banner Ad Placeholder]</div>
+  <div class="ads">[Adsterra Popup Ad Placeholder]</div>  <footer>
+    &copy; 2025 Random Useless Facts Generator
+  </footer>  <script>
+    const facts = [
+      "Bananas are berries, but strawberries aren't.",
+      "Octopuses have three hearts.",
+      "Scotland’s national animal is the unicorn.",
+      "A day on Venus is longer than a year on Venus.",
+      "Wombat poop is cube-shaped.",
+      "Sharks are older than trees.",
+      "Sloths can hold their breath longer than dolphins.",
+      "There’s a species of jellyfish that is biologically immortal.",
+      "Snails can sleep for three years.",
+      "An ostrich’s eye is bigger than its brain."
+      // Add 1000+ more as needed
+    ];
+
+    let remainingFacts = [...facts];
+
+    function showNextFact() {
+      if (remainingFacts.length === 0) {
+        document.getElementById("fact").innerText = "No more facts! Reload to restart.";
+        return;
+      }
+      const index = Math.floor(Math.random() * remainingFacts.length);
+      const fact = remainingFacts.splice(index, 1)[0];
+      document.getElementById("fact").innerText = fact;
+    }
+
+    function sendFact() {
+      const userFact = document.getElementById("userFact").value.trim();
+      if (!userFact) {
+        alert("Please type a fact before sending.");
+        return;
+      }
+
+      // Use EmailJS or another backend service to send email
+      alert("Your fact has been sent to awais.112191@gmail.com (mock message).");
+      document.getElementById("userFact").value = "";
+    }
+  </script>
+</body>
+</html>
